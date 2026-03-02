@@ -8,20 +8,6 @@
 
 ---
 
-## Live Demo
-
-**[weikeong12.github.io/personal-portfolio](https://weikeong12.github.io/personal-portfolio)**
-
----
-
-## Preview
-
-| Home | About | Skills |
-|------|-------|--------|
-| ![Home](images/Project-4.JPG) | Animated timeline | Progress bars |
-
----
-
 ## Project Structure
 
 ```
