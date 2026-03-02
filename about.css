@@ -1,0 +1,227 @@
+/* ============================================
+   ABOUT PAGE STYLES
+   ============================================ */
+
+/* ---- INTRO SECTION ---- */
+.intro-section {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 3rem 8% 4rem;
+  animation: fadeInUp 0.8s ease both;
+}
+
+.intro-image-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.intro-image-glow {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--cyan-dim), transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.intro-image {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--cyan-glow);
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  display: block;
+}
+
+.intro-text {
+  flex: 1;
+  max-width: 620px;
+}
+
+.intro-text .section-title {
+  margin-bottom: 1.5rem;
+  margin-top: 0.4rem;
+}
+
+.intro-body {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.intro-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  color: var(--cyan);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: opacity var(--transition);
+}
+.intro-email:hover { opacity: 0.75; }
+
+/* ---- TIMELINE SECTION ---- */
+.timeline-section {
+  padding: 2rem 8% 5rem;
+}
+
+.timeline-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.timeline {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.timeline-track {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--cyan) 5%, var(--cyan) 95%, transparent);
+  transform: translateX(-50%);
+}
+
+/* Timeline items */
+.tl-item {
+  position: relative;
+  width: 47%;
+  padding: 0 0 2.5rem;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.tl-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tl-left {
+  margin-right: auto;
+  padding-right: 2rem;
+  text-align: right;
+}
+
+.tl-right {
+  margin-left: auto;
+  padding-left: 2rem;
+  text-align: left;
+}
+
+.tl-dot {
+  position: absolute;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  border: 2.5px solid var(--cyan);
+  z-index: 2;
+  transition: background 0.3s;
+}
+
+.tl-left .tl-dot {
+  right: -7px;
+}
+
+.tl-right .tl-dot {
+  left: -7px;
+}
+
+.tl-item:hover .tl-dot {
+  background: var(--cyan);
+}
+
+.tl-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem 1.4rem;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.tl-item:hover .tl-card {
+  background: var(--bg-card-hover);
+  border-color: var(--cyan-glow);
+}
+
+.tl-year {
+  font-size: 0.72rem;
+  color: var(--cyan);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.tl-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.3rem;
+}
+
+.tl-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ---- ANIMATIONS ---- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  .intro-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 6% 3rem;
+    gap: 2rem;
+  }
+
+  .intro-image { width: 200px; height: 200px; }
+  .intro-email { margin: 1rem auto 0; }
+}
+
+@media (max-width: 650px) {
+  /* Stack timeline single column */
+  .timeline-track { left: 18px; }
+
+  .tl-item {
+    width: 100%;
+    padding-left: 50px !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+  }
+
+  .tl-left .tl-dot,
+  .tl-right .tl-dot {
+    left: 11px;
+    right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-image { width: 160px; height: 160px; }
+  .timeline-section { padding: 1rem 5% 3rem; }
+}
